@@ -1,0 +1,14 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	padding: 15px;
+	text-align: center;
+	font-size: 275%;
+	background: linear-gradient(to right, #56ccf2, #2f80ed);
+	color: white;
+}
