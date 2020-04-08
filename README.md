@@ -1,6 +1,6 @@
 ## Viewing the Website
 
-This website is an app reliant on Node JS as well as client side html, css, and js. This means that for some parts of the app to function properly (mainly the APIs), we will need to run the app on a *server*. 
+This website is an app reliant on Node JS as well as client side html, css, and js. This means that for some parts of the app to function properly (mainly the APIs), we will need to run the app on a __server__. 
 
 ### Why a Server?
 
@@ -10,7 +10,7 @@ Essentially, in this case, a server is the place where we can execute the API fu
 
 1. You should already have Node JS installed on your computer from the previous psets we have completed. Check by running the command `node -v` in your terminal application. If you something like `v10.16.3` (the version of Node JS), then Node JS is already installed! If you get an error of some sorts, you can install node by downloading it from the Node JS Downloads page. 
 
-2. Next we must install the *dependencies* we need for our app. Dependencies are different packages that our app *depends* on for certain functionalities. You can see that when you cloned the repository you got a file `package.json`. If you take a look at this file, you'll see it has a section of code that looks something like this:
+2. Next we must install the __dependencies__ we need for our app. Dependencies are different packages that our app __depends__ on for certain functionalities. You can see that when you cloned the repository you got a file `package.json`. If you take a look at this file, you'll see it has a section of code that looks something like this:
 
 `"dependencies": {
     "dotenv": "^8.2.0",
