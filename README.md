@@ -20,7 +20,7 @@ Essentially, in this case, a server is the place where we can execute the API fu
 
 This tells us exactly which dependencies we need to install in our project. Looks like we need `dotenv`, `express`, and `node-fetch`. 
 
-3. To install, these dependencies go back to the terminal and make sure to navigate into your `create-task` folder. Once you're there run the command `npm install dotenv express node-fetch`. Once you're down with that you have everything you need to start coding!
+3. To install, these dependencies go back to the terminal and make sure to navigate into your `create-task` folder. Once you're there run the command `npm install dotenv express node-fetch`. Once you're done with that you have everything you need to start coding!
 
 ### Viewing the Website
 
