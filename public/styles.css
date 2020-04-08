@@ -1,0 +1,35 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h1, div {
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	padding: 0.5em;
+	color: white;
+}
+.title {
+	text-align: center;
+	background: linear-gradient(to right, #56ccf2, #2f80ed);
+	top: 0;
+}
+
+#weather-button {
+	padding: 10px;
+	margin-right: 75%;
+	margin-top: 5%;
+	margin-left: 5%;
+	background: linear-gradient(to right, #56ccf2, #2f80ed);
+	text-align: center;
+	border-radius: 5px;
+}
+
+#weather-button:hover {
+	box-shadow: 4px 7px 19px -4px rgba(0,0,0,0.75);
+}
+
+#weather {
+color: black;
+margin-left: 5%;
+}
