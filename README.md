@@ -33,7 +33,7 @@ Ok don't worry we are almost all set up lol (we better get a 5 on this). To see 
 2. Open your browser (probably Chrome) and enter `localhost:3000` as a URL. You should see the index.html file rendered! This is how you can test and view the website.
 
 
-##Important Notes
-**- __What ever you do please do not upload the `.env` file to GitHub!__ This should already be taken care of because of the 
+## Important Notes
+-__What ever you do please do not upload the `.env` file to GitHub!__ This should already be taken care of because of the 
 `.gitignore` file, however, just be mindful.
 
