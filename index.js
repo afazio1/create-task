@@ -11,7 +11,7 @@ app.get('/weather', async (req, res) => {
     const api_url = 'https://api.openweathermap.org/data/2.5/weather?id=' + cityID + '&appid=' + key;
     const fetch_response = await fetch(api_url);
     const json = await fetch_response.json();
-    res.json(json);
+  	res.json(json);
 
 });
 const port = process.env.PORT || 3000;
