@@ -4,8 +4,8 @@
 }
 
 h1, div {
-	font-family: 'Lato', sans-serif;
-	font-weight: 700;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
 	padding: 0.5em;
 	color: white;
 }
@@ -13,6 +13,8 @@ h1, div {
 	text-align: center;
 	background: linear-gradient(to right, #56ccf2, #2f80ed);
 	top: 0;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
 }
 
 #weather-button {
@@ -23,6 +25,10 @@ h1, div {
 	background: linear-gradient(to right, #56ccf2, #2f80ed);
 	text-align: center;
 	border-radius: 5px;
+	margin-bottom: 3%;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+
 }
 
 #weather-button:hover {
@@ -44,4 +50,11 @@ h1, div {
 }
 .weather-container {
 	margin-left: 3%;
+}
+
+h2 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	color: white;
+	padding: 0.5em;
 }
