@@ -76,3 +76,20 @@ h2 {
 	font-weight: bold;
 	color: #0F5298;
 }
+
+#icon,
+#condition,
+#temps,
+#city {
+	text-align: center;
+}
+
+#icon {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1 {
+	text-align: center;
+}
