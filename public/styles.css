@@ -69,3 +69,10 @@ h2 {
 .nextday-container {
 	background-color: #89E894;
 }
+
+#currenttemp {
+	font-size: 30px;
+	text-decoration: bold;
+	font-weight: bold;
+	color: #0F5298;
+}
