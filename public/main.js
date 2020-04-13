@@ -43,7 +43,7 @@ function kelvinToCelsius(temps) {
 function updateHTML(currentWeatherData) {
 	document.getElementById('icon').src = currentWeatherData[0];
 	document.getElementById('condition').innerHTML = currentWeatherData[1];
-	document.getElementById('temps').innerHTML = `<span>` + "Low: " + currentWeatherData[2][0] + "\xB0" + '<br>'+ `</span><span id="currenttemp"> ` + "Current: " + currentWeatherData[2][1] + "\xB0" + '<br>' + ` </span><span>` + "High: " + currentWeatherData[2][2] + "\xB0" + `</span>`;
+	document.getElementById('temps').innerHTML = `<span  id="currenttemp">` + "Current: " + currentWeatherData[2][1] + "\xB0" + '<br>'+ `</span><span> ` + "Low: " + currentWeatherData[2][0] + "\xB0" + '<br>' + ` </span><span>` + "High: " + currentWeatherData[2][2] + "\xB0" + `</span>`;
 	document.getElementById('city').innerHTML = currentWeatherData[3];
 
 }
