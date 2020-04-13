@@ -6,22 +6,24 @@ document.getElementById('weather-button').addEventListener("click", getWeather);
 
 
 async function getWeather() {
-    
+
     const api_url = '/weather';
     const fetch_response = await fetch(api_url);
     const json = await fetch_response.json();
-   
+
     let icon = "http://openweathermap.org/img/wn/" + json.weather[0].icon + "@2x.png";;
     let condition = json.weather[0].main;
     let temps = [json.main.temp_min, json.main.temp, json.main.temp_max];
     let city = json.name;
 
-    kelvinToFahreinheit(temps);
+   kelvinToFahreinheit(temps);
+  //kelvinToCelsius(temps);
+
 
     let currentWeatherData = [icon, condition, temps, city];
 
     updateHTML(currentWeatherData);
-   
+
 }
 
 function kelvinToFahreinheit(temps) {
@@ -31,10 +33,17 @@ function kelvinToFahreinheit(temps) {
 	return temps;
 }
 
+function kelvinToCelsius(temps) {
+	for (let i = 0; i < temps.length; i++) {
+		temps[i] = Math.round(temps[i] - 273.15);
+	}
+	return temps;
+}
+
 function updateHTML(currentWeatherData) {
 	document.getElementById('icon').src = currentWeatherData[0];
 	document.getElementById('condition').innerHTML = currentWeatherData[1];
 	document.getElementById('temps').innerHTML = `<span>` + currentWeatherData[2][0] + "\xB0" + `</span><span> ` + currentWeatherData[2][1] + "\xB0" + ` </span><span>` + currentWeatherData[2][2] + "\xB0" + `</span>`;
 	document.getElementById('city').innerHTML = currentWeatherData[3];
-	
+
 }
