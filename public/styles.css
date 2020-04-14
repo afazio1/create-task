@@ -93,3 +93,14 @@ h2 {
 h1 {
 	text-align: center;
 }
+ul {
+	list-style-type: none;
+}
+label {
+	padding: 5px;
+	font-size: 110%;
+
+}
+input {
+	margin-left: 5em;
+}
