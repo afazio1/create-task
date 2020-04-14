@@ -104,3 +104,19 @@ label {
 input {
 	margin-left: 5em;
 }
+
+input[type='checkbox'] {
+    -webkit-appearance:none;
+		background: #FFFFFF;
+		border-radius: 2px;
+		border: 1.5px solid slategray;
+	  width: 20px;
+    height: 20px;
+}
+input[type='checkbox']:checked {
+    background: #3C99DC;
+}
+
+li {
+	font-size: 20px;
+}
