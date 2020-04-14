@@ -53,3 +53,10 @@ function getUserWardrobe() {
 	console.log(userWardrobe);
 	console.log(userWardrobe[0].innerHTML);
 }
+
+// Everything below this is code for the recommended apparel section //
+
+	document.getElementById('add-items').addEventListener("click", chooseClothes);
+	function chooseClothes() {
+		console.log("fun");
+	}
