@@ -1,9 +1,10 @@
 // Remember we can not call the API (or click the button) more than 59 times per minute
 // If you need to figure out styling, just put some fake data in the HTML.
 
-
+window.onload = function() {
+	getUserWardrobe();
+}
 document.getElementById('weather-button').addEventListener("click", getWeather);
-
 
 async function getWeather() {
 
@@ -47,4 +48,9 @@ function updateHTML(currentWeatherData) {
 	document.getElementById('city').innerHTML = currentWeatherData[3];
 
 }
-console.log(temps);
+function getUserWardrobe() {
+	var userWardrobe = Array.from(document.querySelectorAll(".my-wardrobe li"));
+	console.log(userWardrobe);
+	console.log(userWardrobe[0].innerHTML);
+}
+
