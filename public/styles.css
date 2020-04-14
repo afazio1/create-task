@@ -120,3 +120,25 @@ input[type='checkbox']:checked {
 li {
 	font-size: 20px;
 }
+.wardrobe {
+	color: #3C99DC;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+}
+.my-wardrobe {
+	list-style-type: square;
+	margin-left: 39em;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+}
+
+.my-wardrobe li {
+	background-color: #0F5298;
+	margin-right: 34em;
+	border-radius: 3px;
+	padding: 5px;
+	margin-bottom: 1%;
+}
+.my-wardrobe li:first-child {
+	background-color: #34DDDD;
+}
