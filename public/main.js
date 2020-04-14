@@ -1,5 +1,5 @@
 // Remember we can not call the API (or click the button) more than 59 times per minute
-// If you need to figure out styling, just put some fake data in the HTML.
+// If we need to figure out styling, just put some fake data in the HTML.
 
 window.onload = function() {
 	getUserWardrobe();
@@ -53,4 +53,3 @@ function getUserWardrobe() {
 	console.log(userWardrobe);
 	console.log(userWardrobe[0].innerHTML);
 }
-
