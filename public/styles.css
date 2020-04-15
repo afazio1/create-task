@@ -135,3 +135,8 @@ li {
   border: none;
   height: 35px;
 }
+
+.my-wardrobe li:hover {
+	text-decoration: line-through;
+	color: white;
+}

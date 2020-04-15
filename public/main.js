@@ -71,4 +71,10 @@ function chooseClothes() {
 	newItem.innerHTML = clothing;
 	myWardrobe.append(newItem);
 	wardrobeSelector.options[wardrobeSelector.selectedIndex].remove();
+	let removeItem = document.getElementsByTagName('li').addEventListener("click", deleteItem);
+}
+
+function deleteItem() {
+	removeItem.remove();
+	console.log("hu");
 }
