@@ -7,11 +7,13 @@ window.onload = function() {
 // Cached Elements
 let wardrobeSelector = document.getElementById('dropdown');
 let myWardrobe = document.querySelector('.my-wardrobe');
+let removeItem = document.querySelector('li');
 
 //Event Listeners
 
 document.getElementById('weather-button').addEventListener("click", getWeather);
 wardrobeSelector.onchange = chooseClothes;
+myWardrobe.onclick = deleteItem;
 
 
 
@@ -71,10 +73,16 @@ function chooseClothes() {
 	newItem.innerHTML = clothing;
 	myWardrobe.append(newItem);
 	wardrobeSelector.options[wardrobeSelector.selectedIndex].remove();
-	let removeItem = document.querySelectorAll('li').addEventListener("click", deleteItem);
+	
 }
 
 function deleteItem(e) {
-	e.remove();
+	console.log(e.target.id);
+	if (e.target.id == "dropdown") {
+	console.log("ok");
+	}
+	else {
+		e.target.remove();
+	}
 	console.log("hu");
 }
