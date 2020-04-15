@@ -107,7 +107,7 @@ li {
 }
 .my-wardrobe {
 	list-style-type: none;
-	margin-left: 39em;
+	margin-left: 38em;
 	font-family: 'Roboto', sans-serif;
 	color: white;
 }
@@ -127,13 +127,13 @@ li {
 
 #dropdown {
   font-family: inherit;
-  width: 200px;
+  width: 9em;
   margin-bottom: 1%;
   font-size: 115%;
   background: #34DDDD;
   color: white;
   border: none;
-  height: 35px;
+  height: 1.5em;
 }
 
 .my-wardrobe li:hover {

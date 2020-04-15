@@ -5,15 +5,16 @@ window.onload = function() {
 	getUserWardrobe();
 }
 // Cached Elements
+
 let wardrobeSelector = document.getElementById('dropdown');
 let myWardrobe = document.querySelector('.my-wardrobe');
-let removeItem = document.querySelector('li');
+//let removeItem = document.querySelector('li');
 
 //Event Listeners
 
 document.getElementById('weather-button').addEventListener("click", getWeather);
-wardrobeSelector.onchange = chooseClothes;
-myWardrobe.onclick = deleteItem;
+wardrobeSelector.onchange = addWardrobeItem;
+myWardrobe.onclick = deleteWardrobeItem;
 
 
 
@@ -61,28 +62,29 @@ function updateHTML(currentWeatherData) {
 }
 function getUserWardrobe() {
 	var userWardrobe = Array.from(document.querySelectorAll(".my-wardrobe li"));
+	userWardrobe.shift();
 	console.log(userWardrobe);
-	console.log(userWardrobe[0].innerHTML);
 }
 
 // Everything below this is code for the recommended apparel section //
 
-function chooseClothes() {
+function addWardrobeItem() {
 	let clothing = wardrobeSelector.options[wardrobeSelector.selectedIndex].text;
 	let newItem = document.createElement('li');
 	newItem.innerHTML = clothing;
 	myWardrobe.append(newItem);
 	wardrobeSelector.options[wardrobeSelector.selectedIndex].remove();
+	getUserWardrobe();
 	
 }
 
-function deleteItem(e) {
-	console.log(e.target.id);
-	if (e.target.id == "dropdown") {
-	console.log("ok");
-	}
-	else {
+function deleteWardrobeItem(e) {
+	console.log(e.target.tagName);
+	if (e.target.id !== "dropdown" && e.target.tagName === "LI") {
+		let newOption = document.createElement('option');
+		newOption.innerHTML = e.target.innerHTML;
+		wardrobeSelector.append(newOption);
 		e.target.remove();
+		getUserWardrobe();
 	}
-	console.log("hu");
 }
