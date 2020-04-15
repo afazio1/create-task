@@ -64,12 +64,11 @@ function getUserWardrobe() {
 }
 
 // Everything below this is code for the recommended apparel section //
-	
+
 function chooseClothes() {
-	
 	let clothing = wardrobeSelector.options[wardrobeSelector.selectedIndex].text;
 	let newItem = document.createElement('li');
 	newItem.innerHTML = clothing;
 	myWardrobe.append(newItem);
-
+	wardrobeSelector.options[wardrobeSelector.selectedIndex].remove();
 }

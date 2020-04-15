@@ -127,13 +127,11 @@ li {
 
 #dropdown {
   font-family: inherit;
-  width: 160px;
+  width: 200px;
   margin-bottom: 1%;
   font-size: 115%;
   background: #34DDDD;
   color: white;
   border: none;
   height: 35px;
-
 }
-
