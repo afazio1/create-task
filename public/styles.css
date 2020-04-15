@@ -106,7 +106,7 @@ li {
 	font-weight: 700;
 }
 .my-wardrobe {
-	list-style-type: square;
+	list-style-type: none;
 	margin-left: 39em;
 	font-family: 'Roboto', sans-serif;
 	color: white;
@@ -114,38 +114,26 @@ li {
 
 .my-wardrobe li {
 	background-color: #0F5298;
-	margin-right: 34em;
+	margin-right: 31em;
 	border-radius: 3px;
 	padding: 5px;
 	margin-bottom: 1%;
 	text-align: center;
 }
-.my-wardrobe li:first-child {
-	background-color: #34DDDD;
-}
-
-.dropdown {
-  display: inline-block;
-	position: relative;
-}
-
-.dropdown-info {
-  min-width: 200px;
-  box-shadow: 0px 8px 20px 0px rgba(0.5,0.5,0.5,0.5);
-	display: none;
-	position: absolute;
+#add-items {
 	background-color: white;
+
 }
 
-.dropdown-info a {
-  color: black;
-  padding: 12px 16px;
-  display: block;
-	text-align: center;
+#dropdown {
+  font-family: inherit;
+  width: 160px;
+  margin-bottom: 1%;
+  font-size: 115%;
+  background: #34DDDD;
+  color: white;
+  border: none;
+  height: 35px;
+
 }
 
-.dropdown-info a:hover {background-color: #77D4F9; color: black}
-
-.dropdown:hover .dropdown-info {
-  display: block;
-}

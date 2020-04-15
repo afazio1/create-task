@@ -4,7 +4,16 @@
 window.onload = function() {
 	getUserWardrobe();
 }
+// Cached Elements
+let wardrobeSelector = document.getElementById('dropdown');
+let myWardrobe = document.querySelector('.my-wardrobe');
+
+//Event Listeners
+
 document.getElementById('weather-button').addEventListener("click", getWeather);
+wardrobeSelector.onchange = chooseClothes;
+
+
 
 async function getWeather() {
 
@@ -55,8 +64,12 @@ function getUserWardrobe() {
 }
 
 // Everything below this is code for the recommended apparel section //
+	
+function chooseClothes() {
+	
+	let clothing = wardrobeSelector.options[wardrobeSelector.selectedIndex].text;
+	let newItem = document.createElement('li');
+	newItem.innerHTML = clothing;
+	myWardrobe.append(newItem);
 
-	document.getElementById('add-items').addEventListener("click", chooseClothes);
-	function chooseClothes() {
-		console.log("fun");
-	}
+}

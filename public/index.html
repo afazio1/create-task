@@ -7,6 +7,7 @@ If you need to figure out styling, just put some fake data in the HTML. -->
 	<title>Weather Wear</title>
 	<link href="https://fonts.googleapis.com/css?family=Lato:700,900|Roboto:100,300,400&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script defer type="text/javascript" src="main.js"></script>
 
 </head>
 <body>
@@ -31,22 +32,22 @@ If you need to figure out styling, just put some fake data in the HTML. -->
 	</div>
 	<h1 class="wardrobe">My Wardrobe</h1>
 	<ul class="my-wardrobe">
-		<div class="dropdown">
-		<li id="add-items">+ Add</li>
-			<div class="dropdown-info">
-				<a>Winter Jacket</a>
-				<a>Raincoat</a>
-				<a>Gloves</a>
-				<a>Sweatshirt</a>
-				<a>Skirt</a>
-				<a>Tank-Top</a>
-			</div>
-		</div>
+		<li id="add-items">
+			<select id="dropdown">
+				<option value="add">+ Add</option>
+				<option value="winter-jacket">Winter Jacket</option>
+				<option value="rain-coat">Rain Coat</option>
+				<option value="gloves">Gloves</option>
+				<option value="sweatshirt">Sweatshirt</option>
+				<option value="skirt">Skirt</option>
+				<option value="tank-top">Tank-Top</option>
+			</select>
+		</li>
 		<li>Short-Sleeve Shirt</li>
 		<li>Long-Sleeve Shirt</li>
 		<li>Pants</li>
 		<li>Shorts</li>
-		</ul>
-	<script type="text/javascript" src="main.js"></script>
+	</ul>
+	
 </body>
 </html>
