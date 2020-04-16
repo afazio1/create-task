@@ -24,10 +24,13 @@ async function getWeather() {
     const fetch_response = await fetch(api_url);
     const json = await fetch_response.json();
 
-    let icon = "http://openweathermap.org/img/wn/" + json.weather[0].icon + "@2x.png";;
-    let condition = json.weather[0].main;
-    let temps = [json.main.temp_min, json.main.temp, json.main.temp_max];
-    let city = json.name;
+    console.log(json);
+    console.log(json.list[0].main.temp);
+
+    let icon = "http://openweathermap.org/img/wn/" + json.list[0].weather[0].icon + "@2x.png";;
+    let condition = json.list[0].weather[0].main;
+    let temps = [json.list[0].main.temp_min, json.list[0].main.temp, json.list[0].main.temp_max];
+    let city = json.city.name;
 
    kelvinToFahreinheit(temps);
   //kelvinToCelsius(temps);
