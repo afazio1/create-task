@@ -5,7 +5,6 @@ window.onload = function() {
 	getUserWardrobe();
 }
 // Cached Elements
-
 let wardrobeSelector = document.getElementById('dropdown');
 let myWardrobe = document.querySelector('.my-wardrobe');
 //let removeItem = document.querySelector('li');
@@ -101,7 +100,11 @@ function getRecommendedApparel(getUserWardrobe) {
 		clothing = document.createElement("li");
 		clothing.innerHTML = userWardrobe[i].innerHTML;
 		clothingList.append(clothing);
+		if (clothing.innerHTML === "Short-Sleeve Shirt") {
+			if (/*currentWeatherData[2][1]*/ < 65) {
+				console.log("yayyaya go meee");
+			}
+		}
 	}
-	
 
 }
