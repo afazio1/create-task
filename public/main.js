@@ -78,7 +78,7 @@ function addWardrobeItem() {
 	myWardrobe.append(newItem);
 	wardrobeSelector.options[wardrobeSelector.selectedIndex].remove();
 	getUserWardrobe();
-	
+
 }
 
 function deleteWardrobeItem(e) {
@@ -90,4 +90,8 @@ function deleteWardrobeItem(e) {
 		e.target.remove();
 		getUserWardrobe();
 	}
+}
+
+function getRecommendedApparel() {
+
 }
