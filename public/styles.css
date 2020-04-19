@@ -9,6 +9,20 @@ h1, div {
 	padding: 0.5em;
 	color: white;
 }
+h3 {
+	font-family: 'Roboto', sans-serif;
+	display: inline-block;
+	padding: 10px;
+	padding-left: 50px;
+	padding-right: 50px;
+	background-color: lightblue;
+	margin-left: 3%;
+	margin-top: 2%;
+	border-radius: 3px;
+}
+#first {
+	margin-left: 7%;
+}
 .title {
 	text-align: center;
 	background: #3C99DC;
