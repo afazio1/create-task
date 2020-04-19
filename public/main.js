@@ -64,7 +64,7 @@ function updateHTML(currentWeatherData) {
 
 }
 function getUserWardrobe() {
-	var userWardrobe = Array.from(document.querySelectorAll(".my-wardrobe li"));
+	userWardrobe = Array.from(document.querySelectorAll(".my-wardrobe li"));
 	userWardrobe.shift();
 	console.log(userWardrobe);
 	return userWardrobe;
@@ -95,7 +95,6 @@ function deleteWardrobeItem(e) {
 
 function getRecommendedApparel(getUserWardrobe) {
 	//figure out what they selected (array called userWardrobe)
-	getUserWardrobe();
 	userWardrobe[0].innerHTML
 	console.log(userWardrobe[0].innerHTML);
 	//li.innerHTML to figure out what they selected
