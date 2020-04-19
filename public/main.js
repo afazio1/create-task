@@ -67,6 +67,7 @@ function getUserWardrobe() {
 	var userWardrobe = Array.from(document.querySelectorAll(".my-wardrobe li"));
 	userWardrobe.shift();
 	console.log(userWardrobe);
+	return userWardrobe;
 }
 
 // Everything below this is code for the recommended apparel section //
@@ -92,6 +93,13 @@ function deleteWardrobeItem(e) {
 	}
 }
 
-function getRecommendedApparel() {
-
+function getRecommendedApparel(getUserWardrobe) {
+	//figure out what they selected (array called userWardrobe)
+	getUserWardrobe();
+	userWardrobe[0].innerHTML
+	console.log(userWardrobe[0].innerHTML);
+	//li.innerHTML to figure out what they selected
+	//pass it in this function
+	//then i check the Weather
+	//else delete
 }
