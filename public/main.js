@@ -99,6 +99,7 @@ function getRecommendedApparel(getUserWardrobe) {
 // done on click, all of the items move to the top, then delete the items based on their relevance to the weather
 	for (var i = 0; i < userWardrobe.length; i++) {
 		clothingList = document.getElementById('apparel-list');
+		// document.createElement("li");
 		selectedItem = userWardrobe[i].innerHTML;
 		clothingList.append(selectedItem);
 	}
