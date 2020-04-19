@@ -140,3 +140,19 @@ li {
 	text-decoration: line-through;
 	color: white;
 }
+
+#done-button {
+	list-style-type: none;
+	margin-left: 38em;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+}
+
+#done-button li {
+	background-color: #0F5298;
+	margin-right: 31em;
+	border-radius: 3px;
+	padding: 5px;
+	margin-bottom: 1%;
+	text-align: center;
+}
