@@ -95,13 +95,13 @@ function deleteWardrobeItem(e) {
 
 document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
 function getRecommendedApparel(getUserWardrobe) {
-	console.log("hi. you made it");
-// done on click, all of the items move to the top, then delete the items based on their relevance to the weather
+// then delete the items based on their relevance to the weather
 	for (var i = 0; i < userWardrobe.length; i++) {
 		clothingList = document.getElementById('apparel-list');
-		// document.createElement("li");
-		selectedItem = userWardrobe[i].innerHTML;
-		clothingList.append(selectedItem);
+		clothing = document.createElement("li");
+		clothing.innerHTML = userWardrobe[i].innerHTML;
+		clothingList.append(clothing);
 	}
+	
 
 }
