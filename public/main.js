@@ -112,7 +112,7 @@ function getRecommendedApparel(getUserWardrobe) {
 	clothingList = document.getElementById('apparel-list');
 // then delete the items based on their relevance to the weather
 	for (var i = 0; i < userWardrobe.length; i++) {
-		
+
 		// clothing = document.createElement("li");
 		// clothing.innerHTML = userWardrobe[i].innerHTML;
 		// clothingList.append(clothing);
@@ -120,9 +120,8 @@ function getRecommendedApparel(getUserWardrobe) {
 
 		if (userWardrobe[i].innerHTML === "Short-Sleeve Shirt") {
 			 if (currentWeatherData[2][1] < 65) {
-				 console.log("hi");
-				 // how delete elements from array
-				 //userWardrobe[i].splice(i, 1)
+				 console.log(userWardrobe);
+				 userWardrobe.splice(i, 1)
 
 			 }
 		}
