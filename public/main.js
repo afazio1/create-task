@@ -12,6 +12,7 @@ let myWardrobe = document.querySelector('.my-wardrobe');
 //Event Listeners
 
 document.getElementById('weather-button').addEventListener("click", getWeather);
+document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
 wardrobeSelector.onchange = addWardrobeItem;
 myWardrobe.onclick = deleteWardrobeItem;
 
@@ -21,11 +22,8 @@ async function getWeather() {
 
     const api_url = '/weather';
     const fetch_response = await fetch(api_url);
-    const json = await fetch_response.json();
-
+    json = await fetch_response.json();
     console.log(json);
-    console.log(json.list[0].main.temp);
-
     let icon = "http://openweathermap.org/img/wn/" + json.list[0].weather[0].icon + "@2x.png";;
     let condition = json.list[0].weather[0].main;
     let temps = [json.list[0].main.temp_min, json.list[0].main.temp, json.list[0].main.temp_max];
@@ -35,10 +33,26 @@ async function getWeather() {
   //kelvinToCelsius(temps);
 
 
-    let currentWeatherData = [icon, condition, temps, city];
+    currentWeatherData = [icon, condition, temps, city];
 
     updateHTML(currentWeatherData);
+    return currentWeatherData;
 
+}
+function storeForecast(json) {
+	//store each day as one element in an array
+	//this function should be called in getWeather()
+
+	currentDate = json.list[0].dt_txt;
+	currentDate = currentDate.slice(8, 10);
+	fiveDayForecast = [json.list[0]];
+	console.log(currentDate);
+	for (let i = 0; i < json.list.length; i++) {
+		if (json.list[i].dt_txt.slice(8, 10) !== currentDate) {
+			//create new day
+			fiveDayForecast.push(json.list[i])
+		}
+	}
 }
 
 function kelvinToFahreinheit(temps) {
@@ -92,8 +106,9 @@ function deleteWardrobeItem(e) {
 	}
 }
 
-document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
+
 function getRecommendedApparel(getUserWardrobe) {
+	console.log(currentWeatherData);
 // then delete the items based on their relevance to the weather
 	for (var i = 0; i < userWardrobe.length; i++) {
 		clothingList = document.getElementById('apparel-list');
@@ -101,9 +116,9 @@ function getRecommendedApparel(getUserWardrobe) {
 		clothing.innerHTML = userWardrobe[i].innerHTML;
 		clothingList.append(clothing);
 		if (clothing.innerHTML === "Short-Sleeve Shirt") {
-			if (/*currentWeatherData[2][1]*/ < 65) {
-				console.log("yayyaya go meee");
-			}
+			// if (/*currentWeatherData[2][1]*/ < 65) {
+			// 	console.log("yayyaya go meee");
+			// }
 		}
 	}
 
