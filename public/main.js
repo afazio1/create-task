@@ -116,9 +116,9 @@ function getRecommendedApparel(getUserWardrobe) {
 		clothing.innerHTML = userWardrobe[i].innerHTML;
 		clothingList.append(clothing);
 		if (clothing.innerHTML === "Short-Sleeve Shirt") {
-			// if (/*currentWeatherData[2][1]*/ < 65) {
-			// 	console.log("yayyaya go meee");
-			// }
+			 if (currentWeatherData[2][1] < 65) {
+
+			 }
 		}
 	}
 
