@@ -8,7 +8,7 @@ window.onload = function() {
 let wardrobeSelector = document.getElementById('dropdown');
 let myWardrobe = document.querySelector('.my-wardrobe');
 let nextDays = document.getElementById('switchday');
-//let removeItem = document.querySelector('li');
+
 
 //Event Listeners
 
@@ -61,8 +61,28 @@ function storeForecast(json) {
 }
 function switchDay(e) {
 	if (e.target.tagName === "H3") {
-		day = e.target.innerHTML;
-		console.log(day);
+		day = e.target.innerHTML.toUpperCase();
+		if (day === "SUN") {
+			console.log("sun");
+		}
+		else if (day === "MON") {
+
+		}
+		else if (day === "TUES") {
+			
+		}
+		else if (day === "WED") {
+			
+		}
+		else if (day === "THURS") {
+			
+		}
+		else if (day === "FRI") {
+			
+		}
+		else if (day === "SAT") {
+			
+		}
 	}
 }
 function kelvinToFahreinheit(temps) {
