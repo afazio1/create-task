@@ -7,14 +7,17 @@ window.onload = function() {
 // Cached Elements
 let wardrobeSelector = document.getElementById('dropdown');
 let myWardrobe = document.querySelector('.my-wardrobe');
+let nextDays = document.getElementById('switchday');
 //let removeItem = document.querySelector('li');
 
 //Event Listeners
 
 document.getElementById('weather-button').addEventListener("click", getWeather);
 document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
+nextDays.onclick = switchDay;
 wardrobeSelector.onchange = addWardrobeItem;
 myWardrobe.onclick = deleteWardrobeItem;
+
 
 
 
@@ -29,8 +32,8 @@ async function getWeather() {
     let temps = [json.list[0].main.temp_min, json.list[0].main.temp, json.list[0].main.temp_max];
     let city = json.city.name;
 
-   kelvinToFahreinheit(temps);
-  //kelvinToCelsius(temps);
+   	kelvinToFahreinheit(temps);
+  	//kelvinToCelsius(temps);
 
 
     currentWeatherData = [icon, condition, temps, city];
@@ -39,6 +42,7 @@ async function getWeather() {
     return currentWeatherData;
 
 }
+
 function storeForecast(json) {
 	//store each day as one element in an array
 	//this function should be called in getWeather()
@@ -50,11 +54,17 @@ function storeForecast(json) {
 	for (let i = 0; i < json.list.length; i++) {
 		if (json.list[i].dt_txt.slice(8, 10) !== currentDate) {
 			//create new day
-			fiveDayForecast.push(json.list[i])
+			fiveDayForecast.push(json.list[i]);
+			currentDate = json.list[i].dt_txt.slice(8, 10);
 		}
 	}
 }
-
+function switchDay(e) {
+	if (e.target.tagName === "H3") {
+		day = e.target.innerHTML;
+		console.log(day);
+	}
+}
 function kelvinToFahreinheit(temps) {
 	for (let i = 0; i < temps.length; i++) {
 		temps[i] = Math.round(((temps[i] - 273.15) * 1.8) + 32);
@@ -72,7 +82,7 @@ function kelvinToCelsius(temps) {
 function updateHTML(currentWeatherData) {
 	document.getElementById('icon').src = currentWeatherData[0];
 	document.getElementById('condition').innerHTML = currentWeatherData[1];
-	document.getElementById('temps').innerHTML = `<h3  id="currenttemp">` + currentWeatherData[2][1] + "\xB0" + `</h3><br><h3> ` + "Low: " + currentWeatherData[2][0] + "\xB0" + '<br>' + ` </h3><h3>` + "High: " + currentWeatherData[2][2] + "\xB0" + `</h3>`;
+	document.getElementById('temps').innerHTML = `<h4  id="currenttemp">` + currentWeatherData[2][1] + "\xB0" + `</h4><br><h4> ` + "Low: " + currentWeatherData[2][0] + "\xB0" + '<br>' + ` </h4><h4>` + "High: " + currentWeatherData[2][2] + "\xB0" + `</h4>`;
 	document.getElementById('city').innerHTML = currentWeatherData[3];
 
 }

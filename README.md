@@ -1,3 +1,12 @@
+# Sources
+
+Please put your sources here:
+
+* https://developer.mozilla.org/en-US/
+* https://youtu.be/17UVejOw3zA
+* https://openweathermap.org/forecast5
+
+
 ## Website Set Up
 
 This website is an app reliant on Node JS as well as client side html, css, and js. This means that for some parts of the app to function properly (mainly the APIs), we will need to run the app on a __server__. 
