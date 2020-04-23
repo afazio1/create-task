@@ -27,10 +27,10 @@ async function getWeather() {
     const fetch_response = await fetch(api_url);
     json = await fetch_response.json();
     console.log(json);
-    
+
     storeForecast(json);
     // getDayOfWeek(fiveDayForecast, 0);
-    
+
     // // by default display the current weather
     // updateHTML(currentWeatherData);
     // return currentWeatherData;
@@ -92,7 +92,7 @@ function getDayOfWeek(fiveDayForecast, i) {
         case 6:
             currentDayOfWeek = "Saturday"
             break;
-    } 
+    }
     return currentDayOfWeek;
 }
 
@@ -114,7 +114,7 @@ function switchDay(e) {
 	if (e.target.tagName === "H3") {
 		selectedDay = e.target.innerHTML.toUpperCase();
 		// now loop through fiveDayForecast, find the correct day, and display it
-		
+
 	}
 }
 function kelvinToFahreinheit(temps) {
@@ -183,10 +183,72 @@ function getRecommendedApparel(getUserWardrobe) {
 		if (userWardrobe[i].innerHTML === "Short-Sleeve Shirt") {
 			 if (currentWeatherData[2][1] < 65) {
 				 console.log(userWardrobe);
-				 userWardrobe.splice(i, 1)
-
+				 userWardrobe.splice(i, 1);
 			 }
-		}
+		 }
+
+		 if (userWardrobe[i].innerHTML === "Long-Sleeve Shirt") {
+ 			 if (currentWeatherData[2][1] > 65) {
+ 				 console.log(userWardrobe);
+ 				 userWardrobe.splice(i, 1);
+ 			 }
+ 		 }
+
+		 if (userWardrobe[i].innerHTML === "Shorts") {
+ 			 if (currentWeatherData[2][1] < 80) {
+ 				 console.log(userWardrobe);
+ 				 userWardrobe.splice(i, 1);
+ 			 }
+ 		 }
+
+		 if (userWardrobe[i].innerHTML === "Winter Jacket") {
+ 			 if (currentWeatherData[2][1] > 50) {
+ 				 console.log(userWardrobe);
+ 				 userWardrobe.splice(i, 1);
+ 			 }
+ 		 }
+
+		 if (userWardrobe[i].innerHTML === "Rain Coat") {
+ 			 if (currentWeatherData[1] === "Rain") {
+ 				 console.log(userWardrobe);
+ 				 userWardrobe.splice(i, 1);
+ 			 }
+ 		 }
+
+		 if (userWardrobe[i].innerHTML === "Gloves") {
+ 			 if (currentWeatherData[2][1] > 45) {
+ 				 console.log(userWardrobe);
+ 				 userWardrobe.splice(i, 1);
+ 			 }
+ 		 }
+
+		 if (userWardrobe[i].innerHTML === "Sweatshirt") {
+ 			 if (currentWeatherData[2][1] > 60) {
+ 				 console.log(userWardrobe);
+ 				 userWardrobe.splice(i, 1);
+ 			 }
+ 		 }
+
+		 if (userWardrobe[i].innerHTML === "Skirt") {
+ 			 if (currentWeatherData[2][1] < 80) {
+ 				 console.log(userWardrobe);
+ 				 userWardrobe.splice(i, 1);
+ 			 }
+ 		 }
+
+		 if (userWardrobe[i].innerHTML === "Tank-Top") {
+ 			 if (currentWeatherData[2][1] < 80) {
+ 				 console.log(userWardrobe);
+ 				 userWardrobe.splice(i, 1);
+ 			 }
+ 		 }
+
+		 if (userWardrobe[i].innerHTML === "Pants") {
+ 			 if (currentWeatherData[2][1] > 70) {
+ 				 console.log(userWardrobe);
+ 				 userWardrobe.splice(i, 1);
+ 			 }
+ 		 }
 	}
 
 }
