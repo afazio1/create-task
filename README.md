@@ -5,6 +5,7 @@ Please put your sources here:
 * https://developer.mozilla.org/en-US/
 * https://youtu.be/17UVejOw3zA
 * https://openweathermap.org/forecast5
+* https://mkyong.com/javascript/javascript-get-selected-value-from-dropdown-list/
 
 
 ## Website Set Up

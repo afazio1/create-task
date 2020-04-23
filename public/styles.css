@@ -173,3 +173,6 @@ li {
 #switchday {
 	color: black;
 }
+.highlighted {
+	background-color: pink;
+}
