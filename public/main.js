@@ -4,6 +4,8 @@
 window.onload = function() {
 	getUserWardrobe();
 }
+// Variables
+let fiveDayForecast = [];
 // Cached Elements
 let wardrobeSelector = document.getElementById('dropdown');
 let myWardrobe = document.querySelector('.my-wardrobe');
@@ -19,28 +21,30 @@ wardrobeSelector.onchange = addWardrobeItem;
 myWardrobe.onclick = deleteWardrobeItem;
 
 
-
-
 async function getWeather() {
 
     const api_url = '/weather';
     const fetch_response = await fetch(api_url);
     json = await fetch_response.json();
     console.log(json);
-    let icon = "http://openweathermap.org/img/wn/" + json.list[0].weather[0].icon + "@2x.png";;
-    let condition = json.list[0].weather[0].main;
-    let temps = [json.list[0].main.temp_min, json.list[0].main.temp, json.list[0].main.temp_max];
-    let city = json.city.name;
 
-   	kelvinToFahreinheit(temps);
-  	//kelvinToCelsius(temps);
-
-
-    currentWeatherData = [icon, condition, temps, city];
-
-    updateHTML(currentWeatherData);
-    return currentWeatherData;
-
+    storeForecast(json);
+    // getDayOfWeek(fiveDayForecast, 0);
+    // getSpecifics(fiveDayForecast, 0);
+    // // by default display the current weather
+    // updateHTML(currentWeatherData);
+    // return currentWeatherData;
+    raw = 0;
+    for (let i = 0; i < fiveDayForecast.length; i++) {
+		fiveDayForecast[i].dayOfWeek = getDayOfWeek(fiveDayForecast, raw)
+		if (raw === time.getDay()) {
+			raw = -time.getDay();
+		}
+		else {
+			raw++;
+		}
+	}
+	console.log(fiveDayForecast);
 }
 
 function storeForecast(json) {
@@ -58,31 +62,57 @@ function storeForecast(json) {
 			currentDate = json.list[i].dt_txt.slice(8, 10);
 		}
 	}
+	return fiveDayForecast;
+}
+function getDayOfWeek(fiveDayForecast, i) {
+	time = new Date();
+	currentDayOfWeek = time.getDay() + i;
+	//raw = time.getDay()
+	switch (currentDayOfWeek) {
+        case 0:
+            currentDayOfWeek = "Sunday"
+            break;
+        case 1:
+            currentDayOfWeek = "Monday"
+            break;
+        case 2:
+            currentDayOfWeek = "Tuesday"
+            break;
+        case 3:
+            currentDayOfWeek = "Wednesday"
+            break;
+        case 4:
+            currentDayOfWeek = "Thursday"
+            break;
+        case 5:
+            currentDayOfWeek = "Friday"
+            break;
+        case 6:
+            currentDayOfWeek = "Saturday"
+            break;
+    } 
+    return currentDayOfWeek;
+}
+
+// might combine this function with updateHTML
+function getSpecifics(fiveDayForecast, i) {
+	icon = "http://openweathermap.org/img/wn/" + fiveDayForecast[i].list[0].weather[0].icon + "@2x.png";
+   	condition = fiveDayForecast[i].list[0].weather[0].main;
+    temps = [fiveDayForecast[i].list[0].main.temp_min, fiveDayForecast[i].list[0].main.temp, fiveDayForecast[i].list[0].main.temp_max];
+    city = fiveDayForecast[i].city.name;
+
+
+   	kelvinToFahreinheit(temps);
+  	// kelvinToCelsius(temps);
+
+    currentWeatherData = [icon, condition, temps, city];
+    return currentWeatherData;
 }
 function switchDay(e) {
 	if (e.target.tagName === "H3") {
-		day = e.target.innerHTML.toUpperCase();
-		if (day === "SUN") {
-			console.log("sun");
-		}
-		else if (day === "MON") {
-
-		}
-		else if (day === "TUES") {
-			
-		}
-		else if (day === "WED") {
-			
-		}
-		else if (day === "THURS") {
-			
-		}
-		else if (day === "FRI") {
-			
-		}
-		else if (day === "SAT") {
-			
-		}
+		selectedDay = e.target.innerHTML.toUpperCase();
+		// now loop through fiveDayForecast, find the correct day, and display it
+		
 	}
 }
 function kelvinToFahreinheit(temps) {
