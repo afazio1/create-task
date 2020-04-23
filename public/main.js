@@ -27,10 +27,10 @@ async function getWeather() {
     const fetch_response = await fetch(api_url);
     json = await fetch_response.json();
     console.log(json);
-
+    
     storeForecast(json);
     // getDayOfWeek(fiveDayForecast, 0);
-    // getSpecifics(fiveDayForecast, 0);
+    
     // // by default display the current weather
     // updateHTML(currentWeatherData);
     // return currentWeatherData;
@@ -45,6 +45,8 @@ async function getWeather() {
 		}
 	}
 	console.log(fiveDayForecast);
+	getSpecifics(fiveDayForecast);
+	updateHTML(currentWeatherData);
 }
 
 function storeForecast(json) {
@@ -95,11 +97,11 @@ function getDayOfWeek(fiveDayForecast, i) {
 }
 
 // might combine this function with updateHTML
-function getSpecifics(fiveDayForecast, i) {
-	icon = "http://openweathermap.org/img/wn/" + fiveDayForecast[i].list[0].weather[0].icon + "@2x.png";
-   	condition = fiveDayForecast[i].list[0].weather[0].main;
-    temps = [fiveDayForecast[i].list[0].main.temp_min, fiveDayForecast[i].list[0].main.temp, fiveDayForecast[i].list[0].main.temp_max];
-    city = fiveDayForecast[i].city.name;
+function getSpecifics(fiveDayForecast) {
+	icon = "http://openweathermap.org/img/wn/" + fiveDayForecast[0].weather[0].icon + "@2x.png";
+   	condition = fiveDayForecast[0].weather[0].main;
+    temps = [fiveDayForecast[0].main.temp_min, fiveDayForecast[0].main.temp, fiveDayForecast[0].main.temp_max];
+    city = json.city.name;
 
 
    	kelvinToFahreinheit(temps);
