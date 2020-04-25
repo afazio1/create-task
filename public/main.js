@@ -29,7 +29,7 @@ async function getWeather() {
     console.log(json);
 
     storeForecast(json);
-    
+
     raw = 0;
     for (let i = 0; i < fiveDayForecast.length; i++) {
 		fiveDayForecast[i].dayOfWeek = getDayOfWeek(fiveDayForecast, raw);
@@ -42,7 +42,7 @@ async function getWeather() {
 	}
 	console.log(fiveDayForecast);
 	getDayWeather(fiveDayForecast[0]);
-	
+
 
 }
 
@@ -66,7 +66,7 @@ function storeForecast(json) {
 function getDayOfWeek(fiveDayForecast, raw) {
 	time = new Date();
 	currentDayOfWeek = time.getDay() + raw;
-	
+
 	switch (currentDayOfWeek) {
         case 0:
             currentDayOfWeek = "Sun"
@@ -178,11 +178,6 @@ function getRecommendedApparel(getUserWardrobe) {
 // then delete the items based on their relevance to the weather
 	for (var i = 0; i < userWardrobe.length; i++) {
 
-		// clothing = document.createElement("li");
-		// clothing.innerHTML = userWardrobe[i].innerHTML;
-		// clothingList.append(clothing);
-
-
 		if (userWardrobe[i].innerHTML === "Short-Sleeve Shirt") {
 			 if (currentWeatherData[2][1] < 65) {
 				 console.log(userWardrobe);
@@ -211,7 +206,7 @@ function getRecommendedApparel(getUserWardrobe) {
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Rain Coat") {
+		 if (userWardrobe[i].innerHTML === "Raincoat") {
  			 if (currentWeatherData[1] === "Rain") {
  				 console.log(userWardrobe);
  				 userWardrobe.splice(i, 1);
@@ -252,6 +247,9 @@ function getRecommendedApparel(getUserWardrobe) {
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
+		 clothing = document.createElement("li");
+		 clothing.innerHTML = userWardrobe[i].innerHTML;
+		 clothingList.append(clothing);
 	}
 
 }

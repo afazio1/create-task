@@ -15,7 +15,7 @@ h3 {
 	padding: 10px;
 	padding-left: 50px;
 	padding-right: 50px;
-	background-color: lightblue;
+	background-color: #89E894;
 	margin-left: 3%;
 	margin-top: 2%;
 	border-radius: 3px;
@@ -57,7 +57,7 @@ h3 {
 .apparel-container,
 .nextday-container {
 	display: inline-block;
-	width: 30%;
+	width: 45%;
 	border-radius: 15px;
 	box-shadow: 4px 7px 19px -4px rgba(0,0,0,0.75);
 }
@@ -115,7 +115,7 @@ li {
 	font-size: 20px;
 }
 .wardrobe {
-	color: #3C99DC;
+	color: #0F5298;
 	font-family: 'Lato', sans-serif;
 	font-weight: 700;
 }
@@ -163,7 +163,7 @@ li {
 }
 
 #done-button li {
-	background-color: #89E894;
+	background-color: #34DDDD;
 	margin-right: 31em;
 	border-radius: 3px;
 	padding: 5px;
