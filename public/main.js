@@ -180,70 +180,60 @@ function getRecommendedApparel(getUserWardrobe) {
 
 		if (userWardrobe[i].innerHTML === "Short-Sleeve Shirt") {
 			 if (currentWeatherData[2][1] < 65) {
-				 console.log(userWardrobe);
 				 userWardrobe.splice(i, 1);
 			 }
 		 }
 
 		 if (userWardrobe[i].innerHTML === "Long-Sleeve Shirt") {
  			 if (currentWeatherData[2][1] > 65) {
- 				 console.log(userWardrobe);
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
 		 if (userWardrobe[i].innerHTML === "Shorts") {
  			 if (currentWeatherData[2][1] < 80) {
- 				 console.log(userWardrobe);
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
 		 if (userWardrobe[i].innerHTML === "Winter Jacket") {
  			 if (currentWeatherData[2][1] > 50) {
- 				 console.log(userWardrobe);
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
 		 if (userWardrobe[i].innerHTML === "Raincoat") {
  			 if (currentWeatherData[1] !== "Rain") {
- 				 console.log(userWardrobe);
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
 		 if (userWardrobe[i].innerHTML === "Gloves") {
  			 if (currentWeatherData[2][1] > 45) {
- 				 console.log(userWardrobe);
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
 		 if (userWardrobe[i].innerHTML === "Sweatshirt") {
  			 if (currentWeatherData[2][1] > 60) {
- 				 console.log(userWardrobe);
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
 		 if (userWardrobe[i].innerHTML === "Skirt") {
  			 if (currentWeatherData[2][1] < 80) {
- 				 console.log(userWardrobe);
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
 		 if (userWardrobe[i].innerHTML === "Tank-Top") {
  			 if (currentWeatherData[2][1] < 80) {
- 				 console.log(userWardrobe);
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
 		 if (userWardrobe[i].innerHTML === "Pants") {
  			 if (currentWeatherData[2][1] > 70) {
- 				 console.log(userWardrobe);
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
