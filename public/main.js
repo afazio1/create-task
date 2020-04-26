@@ -114,6 +114,7 @@ function switchDay(e) {
 		// e.target.className = "highlighted";
 		for (let i = 0; i < fiveDayForecast.length; i++) { // loop through fiveDayForecast, find the correct day, and display it
 			if (fiveDayForecast[i].dayOfWeek === selectedDay) {
+				clothingList.innerHTML = "";
 				getDayWeather(fiveDayForecast[i]);
 			}
 		}
