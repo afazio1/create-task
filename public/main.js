@@ -207,7 +207,7 @@ function getRecommendedApparel(getUserWardrobe) {
  		 }
 
 		 if (userWardrobe[i].innerHTML === "Raincoat") {
- 			 if (currentWeatherData[1] === "Rain") {
+ 			 if (currentWeatherData[1] !== "Rain") {
  				 console.log(userWardrobe);
  				 userWardrobe.splice(i, 1);
  			 }
