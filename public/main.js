@@ -146,6 +146,8 @@ function getUserWardrobe() {
 	userWardrobe.shift();
 	console.log(userWardrobe);
 	return userWardrobe;
+	addWardrobeItem();
+	deleteWardrobeItem();
 }
 
 // Everything below this is code for the recommended apparel section //
@@ -157,7 +159,6 @@ function addWardrobeItem() {
 	myWardrobe.append(newItem);
 	wardrobeSelector.options[wardrobeSelector.selectedIndex].remove();
 	getUserWardrobe();
-
 }
 
 function deleteWardrobeItem(e) {
@@ -177,7 +178,6 @@ function getRecommendedApparel(getUserWardrobe) {
 	clothingList = document.getElementById('apparel-list');
 // then delete the items based on their relevance to the weather
 	for (var i = 0; i < userWardrobe.length; i++) {
-
 		if (userWardrobe[i].innerHTML === "Short-Sleeve Shirt") {
 			 if (currentWeatherData[2][1] < 65) {
 				 userWardrobe.splice(i, 1);
@@ -241,5 +241,4 @@ function getRecommendedApparel(getUserWardrobe) {
 		 clothing.innerHTML = userWardrobe[i].innerHTML;
 		 clothingList.append(clothing);
 	}
-
 }
