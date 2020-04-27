@@ -3,6 +3,7 @@
 
 window.onload = function() {
 	getUserWardrobe();
+	getWeather();
 }
 // Variables
 let fiveDayForecast = [];
@@ -14,7 +15,7 @@ let nextDays = document.getElementById('switchday');
 
 //Event Listeners
 
-document.getElementById('weather-button').addEventListener("click", getWeather);
+//document.getElementById('weather-button').addEventListener("click", getWeather);
 document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
 nextDays.onclick = switchDay;
 wardrobeSelector.onchange = addWardrobeItem;
@@ -43,7 +44,7 @@ async function getWeather() {
 	console.log(fiveDayForecast);
 	getDayWeather(fiveDayForecast[0]);
 
-
+setTimeout(getWeather, 108000)
 }
 
 function storeForecast(json) {
