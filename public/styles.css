@@ -181,7 +181,8 @@ li {
 	text-align: center;
 }
 
-#degrees {
+#fdegrees,
+#cdegrees {
 	display: inline-block;
 	background-color: #0F5298;
 	margin-right: 31em;

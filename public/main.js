@@ -100,9 +100,24 @@ function getDayWeather(dayWeather) {
     temps = [dayWeather.main.temp_min, dayWeather.main.temp, dayWeather.main.temp_max];
     dayOfWeek = dayWeather.dayOfWeek;
     city = json.city.name;
-
-   	kelvinToFahreinheit(temps);
+    document.getElementById('cdegrees').addEventListener("click", kelvinToCelcius);
+	document.getElementById('fdegrees').addEventListener("click", kelvinToFahrenheit);
+   	//kelvinToFahrenheit(temps);
   	// kelvinToCelsius(temps);
+
+  function kelvinToFahrenheit(temps) {
+	for (let i = 0; i < temps.length; i++) {
+		temps[i] = Math.round(((temps[i] - 273.15) * 1.8) + 32);
+	}
+	return temps;
+}
+
+function kelvinToCelsius(temps) {
+	for (let i = 0; i < temps.length; i++) {
+		temps[i] = Math.round(temps[i] - 273.15);
+	}
+	return temps;
+}
     currentWeatherData = [icon, condition, temps, city];
 
     updateHTML(currentWeatherData);
@@ -122,19 +137,7 @@ function switchDay(e) {
 	}
 }
 
-function kelvinToFahreinheit(temps) {
-	for (let i = 0; i < temps.length; i++) {
-		temps[i] = Math.round(((temps[i] - 273.15) * 1.8) + 32);
-	}
-	return temps;
-}
-
-function kelvinToCelsius(temps) {
-	for (let i = 0; i < temps.length; i++) {
-		temps[i] = Math.round(temps[i] - 273.15);
-	}
-	return temps;
-}
+//depending on what button you click it calls the necessary function
 
 function updateHTML(currentWeatherData) {
 	document.getElementById('icon').src = currentWeatherData[0];
