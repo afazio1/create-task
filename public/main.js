@@ -14,6 +14,8 @@ let nextDays = document.getElementById('switchday');
 
 
 //Event Listeners
+    document.getElementById('cdegrees').addEventListener("click", kelvinToCelcius);
+	document.getElementById('fdegrees').addEventListener("click", kelvinToFahrenheit);
 
 //document.getElementById('weather-button').addEventListener("click", getWeather);
 document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
@@ -100,9 +102,7 @@ function getDayWeather(dayWeather) {
     temps = [dayWeather.main.temp_min, dayWeather.main.temp, dayWeather.main.temp_max];
     dayOfWeek = dayWeather.dayOfWeek;
     city = json.city.name;
-    document.getElementById('cdegrees').addEventListener("click", kelvinToCelcius);
-	document.getElementById('fdegrees').addEventListener("click", kelvinToFahrenheit);
-   	//kelvinToFahrenheit(temps);
+   	kelvinToFahrenheit(temps);
   	// kelvinToCelsius(temps);
 
   function kelvinToFahrenheit(temps) {
