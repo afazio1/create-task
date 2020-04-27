@@ -14,8 +14,8 @@ let nextDays = document.getElementById('switchday');
 
 
 //Event Listeners
-    document.getElementById('cdegrees').addEventListener("click", kelvinToCelcius);
-	document.getElementById('fdegrees').addEventListener("click", kelvinToFahrenheit);
+document.getElementById('cdegrees').addEventListener("click", kelvinToCelsius);
+document.getElementById('fdegrees').addEventListener("click", kelvinToFahrenheit);
 
 //document.getElementById('weather-button').addEventListener("click", getWeather);
 document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
@@ -105,19 +105,6 @@ function getDayWeather(dayWeather) {
    	kelvinToFahrenheit(temps);
   	// kelvinToCelsius(temps);
 
-  function kelvinToFahrenheit(temps) {
-	for (let i = 0; i < temps.length; i++) {
-		temps[i] = Math.round(((temps[i] - 273.15) * 1.8) + 32);
-	}
-	return temps;
-}
-
-function kelvinToCelsius(temps) {
-	for (let i = 0; i < temps.length; i++) {
-		temps[i] = Math.round(temps[i] - 273.15);
-	}
-	return temps;
-}
     currentWeatherData = [icon, condition, temps, city];
 
     updateHTML(currentWeatherData);
@@ -137,6 +124,19 @@ function switchDay(e) {
 	}
 }
 
+function kelvinToFahrenheit() {
+	for (let i = 0; i < temps.length; i++) {
+		temps[i] = Math.round(((temps[i] - 273.15) * 1.8) + 32);
+	}
+	return temps;
+}
+
+function kelvinToCelsius() {
+	for (let i = 0; i < temps.length; i++) {
+		temps[i] = Math.round(temps[i] - 273.15);
+	}
+	return temps;
+}
 //depending on what button you click it calls the necessary function
 
 function updateHTML(currentWeatherData) {
