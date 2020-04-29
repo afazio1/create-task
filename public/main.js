@@ -7,10 +7,12 @@ window.onload = function() {
 }
 // Variables
 let fiveDayForecast = [];
+
 // Cached Elements
 let wardrobeSelector = document.getElementById('dropdown');
 let myWardrobe = document.querySelector('.my-wardrobe');
-let nextDays = document.getElementById('switchday');
+let nextDaysDiv = document.getElementById('switchday');
+let nextDays = Array.from(document.querySelectorAll("#switchday h3"));
 
 
 //Event Listeners
@@ -19,7 +21,7 @@ document.getElementById('fdegrees').addEventListener("click", kelvinToFahrenheit
 
 //document.getElementById('weather-button').addEventListener("click", getWeather);
 document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
-nextDays.onclick = switchDay;
+nextDaysDiv.onclick = switchDay;
 wardrobeSelector.onchange = addWardrobeItem;
 myWardrobe.onclick = deleteWardrobeItem;
 
@@ -105,16 +107,21 @@ function getDayWeather(dayWeather) {
    	kelvinToFahrenheit(temps);
   	// kelvinToCelsius(temps);
 
-    currentWeatherData = [icon, condition, temps, city];
+    currentWeatherData = [icon, condition, temps, city, dayOfWeek];
 
     updateHTML(currentWeatherData);
     return currentWeatherData;
 }
 function switchDay(e) {
 	if (e.target.tagName === "H3") {
+		nextDays.forEach(function(day){
+			console.log(day);
+			day.className = "";
+		});
 
 		selectedDay = e.target.innerHTML;
-		// e.target.className = "highlighted";
+		//e.target.className = "highlighted";
+
 		for (let i = 0; i < fiveDayForecast.length; i++) { // loop through fiveDayForecast, find the correct day, and display it
 			if (fiveDayForecast[i].dayOfWeek === selectedDay) {
 				clothingList.innerHTML = "";
@@ -144,6 +151,11 @@ function updateHTML(currentWeatherData) {
 	document.getElementById('condition').innerHTML = currentWeatherData[1];
 	document.getElementById('temps').innerHTML = `<h4  id="currenttemp">` + currentWeatherData[2][1] + "\xB0" + `</h4><br><h4> ` + "Low: " + currentWeatherData[2][0] + "\xB0" + '<br>' + ` </h4><h4>` + "High: " + currentWeatherData[2][2] + "\xB0" + `</h4>`;
 	document.getElementById('city').innerHTML = currentWeatherData[3];
+	nextDays.forEach(function(day){
+		if (day.innerHTML === currentWeatherData[4]) {
+			day.className = "highlighted";
+		}
+	});
 
 }
 function getUserWardrobe() {
@@ -177,7 +189,6 @@ function deleteWardrobeItem(e) {
 	}
 }
 
-
 function getRecommendedApparel(getUserWardrobe) {
 	console.log(currentWeatherData);
 	clothingList = document.getElementById('apparel-list');
@@ -189,61 +200,68 @@ function getRecommendedApparel(getUserWardrobe) {
 			 }
 		 }
 
-		 if (userWardrobe[i].innerHTML === "Long-Sleeve Shirt") {
+		else if (userWardrobe[i].innerHTML === "Long-Sleeve Shirt") {
  			 if (currentWeatherData[2][1] > 65) {
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Shorts") {
+		else if (userWardrobe[i].innerHTML === "Shorts") {
  			 if (currentWeatherData[2][1] < 80) {
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
-
-		 if (userWardrobe[i].innerHTML === "Winter Jacket") {
+ 		
+		else if (userWardrobe[i].innerHTML === "Winter Jacket") {
  			 if (currentWeatherData[2][1] > 50) {
  				 userWardrobe.splice(i, 1);
+
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Raincoat") {
+		else if (userWardrobe[i].innerHTML === "Raincoat") {
  			 if (currentWeatherData[1] !== "Rain") {
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Gloves") {
+		else if (userWardrobe[i].innerHTML === "Gloves") {
  			 if (currentWeatherData[2][1] > 45) {
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Sweatshirt") {
+		else if (userWardrobe[i].innerHTML === "Sweatshirt") {
  			 if (currentWeatherData[2][1] > 60) {
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Skirt") {
+		else if (userWardrobe[i].innerHTML === "Skirt") {
  			 if (currentWeatherData[2][1] < 80) {
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Tank-Top") {
+		else if (userWardrobe[i].innerHTML === "Tank-Top") {
  			 if (currentWeatherData[2][1] < 80) {
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Pants") {
+		else if (userWardrobe[i].innerHTML === "Pants") {
  			 if (currentWeatherData[2][1] > 70) {
  				 userWardrobe.splice(i, 1);
  			 }
  		 }
-		 clothing = document.createElement("li");
-		 clothing.innerHTML = userWardrobe[i].innerHTML;
-		 clothingList.append(clothing);
+		 
 	}
+	
+	userWardrobe.forEach(function(apparel){
+		clothing = document.createElement("li");
+		clothing.innerHTML = apparel.innerHTML;
+		clothingList.append(clothing);
+	});
+		
+		
 }

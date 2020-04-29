@@ -174,7 +174,8 @@ li {
 	color: black;
 }
 .highlighted {
-	background-color: pink;
+	background-color: #0F5298;
+	color: white;
 }
 
 li {
@@ -191,4 +192,4 @@ li {
 	margin-bottom: 0.4%;
 	text-align: center;
 	top: 0;
-	}
+}
