@@ -16,8 +16,8 @@ let nextDays = Array.from(document.querySelectorAll("#switchday h3"));
 
 
 //Event Listeners
- document.getElementById('cdegrees').addEventListener("click", kelvinToCelsius);
- document.getElementById('fdegrees').addEventListener("click", kelvinToFahrenheit);
+document.getElementById('cdegrees').addEventListener("click", kelvinToCelsius);
+document.getElementById('fdegrees').addEventListener("click", kelvinToFahrenheit);
 
 //document.getElementById('weather-button').addEventListener("click", getWeather);
 document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
@@ -105,7 +105,7 @@ function getDayWeather(dayWeather) {
     dayOfWeek = dayWeather.dayOfWeek;
     city = json.city.name;
    	kelvinToFahrenheit(temps);
-  	 //kelvinToCelsius(temps);
+  	// kelvinToCelsius(temps);
 
     currentWeatherData = [icon, condition, temps, city, dayOfWeek];
 
@@ -132,7 +132,6 @@ function switchDay(e) {
 }
 
 function kelvinToFahrenheit() {
-	console.log("ugh");
 	for (let i = 0; i < temps.length; i++) {
 		temps[i] = Math.round(((temps[i] - 273.15) * 1.8) + 32);
 	}
@@ -140,7 +139,6 @@ function kelvinToFahrenheit() {
 }
 
 function kelvinToCelsius() {
-	console.log("hi");
 	for (let i = 0; i < temps.length; i++) {
 		temps[i] = Math.round(temps[i] - 273.15);
 	}
@@ -199,62 +197,80 @@ function getRecommendedApparel(getUserWardrobe) {
 		if (userWardrobe[i].innerHTML === "Short-Sleeve Shirt") {
 			 if (currentWeatherData[2][1] < 65) {
 				 userWardrobe.splice(i, 1);
+				 console.log("1");
+				 i--;
 			 }
 		 }
 
-		 if (userWardrobe[i].innerHTML === "Long-Sleeve Shirt") {
+		else if (userWardrobe[i].innerHTML === "Long-Sleeve Shirt") {
  			 if (currentWeatherData[2][1] > 65) {
  				 userWardrobe.splice(i, 1);
+ 				 console.log("2");
+ 				 i--;
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Shorts") {
+		 else if (userWardrobe[i].innerHTML === "Shorts") {
  			 if (currentWeatherData[2][1] < 80) {
  				 userWardrobe.splice(i, 1);
+ 				 console.log("3");
+ 				 i--;
  			 }
  		 }
  		
-		 if (userWardrobe[i].innerHTML === "Winter Jacket") {
+		else if (userWardrobe[i].innerHTML === "Winter Jacket") {
  			 if (currentWeatherData[2][1] > 50) {
  				 userWardrobe.splice(i, 1);
- 				 console.log("plz work");
-
+ 				 console.log("4");
+ 				 i--;
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Raincoat") {
+		else if (userWardrobe[i].innerHTML === "Raincoat") {
  			 if (currentWeatherData[1] !== "Rain") {
  				 userWardrobe.splice(i, 1);
+ 				 console.log("5");
+ 				 i--;
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Gloves") {
+		 else if (userWardrobe[i].innerHTML === "Gloves") {
  			 if (currentWeatherData[2][1] > 45) {
  				 userWardrobe.splice(i, 1);
+ 				 console.log("6");
+ 				 i--;
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Sweatshirt") {
+		 else if (userWardrobe[i].innerHTML === "Sweatshirt") {
  			 if (currentWeatherData[2][1] > 60) {
  				 userWardrobe.splice(i, 1);
+ 				 console.log("7");
+ 				 i--;
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Skirt") {
+		 else if (userWardrobe[i].innerHTML === "Skirt") {
  			 if (currentWeatherData[2][1] < 80) {
  				 userWardrobe.splice(i, 1);
+ 				 console.log("8");
+ 				 i--;
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Tank-Top") {
+		 else if (userWardrobe[i].innerHTML === "Tank-Top") {
  			 if (currentWeatherData[2][1] < 80) {
  				 userWardrobe.splice(i, 1);
+ 				 console.log("9");
+ 				 i--;
  			 }
  		 }
 
-		 if (userWardrobe[i].innerHTML === "Pants") {
+		 else if (userWardrobe[i].innerHTML === "Pants") {
  			 if (currentWeatherData[2][1] > 70) {
  				 userWardrobe.splice(i, 1);
+ 				 console.log("10");
+ 				 i--;
  			 }
  		 }
 		 
