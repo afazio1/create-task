@@ -172,6 +172,7 @@ li {
 }
 #switchday {
 	color: black;
+	padding-bottom: 30px;
 }
 .highlighted {
 	background-color: #0F5298;
