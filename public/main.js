@@ -16,8 +16,8 @@ let nextDays = Array.from(document.querySelectorAll("#switchday h3"));
 
 
 //Event Listeners
-document.getElementById('cdegrees').addEventListener("click", kelvinToCelsius);
-document.getElementById('fdegrees').addEventListener("click", kelvinToFahrenheit);
+document.getElementById('cdegrees').addEventListener("click", fahrenheitToCelsius);
+document.getElementById('fdegrees').addEventListener("click", celsiusToFahrenheit);
 
 //document.getElementById('weather-button').addEventListener("click", getWeather);
 document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
@@ -131,18 +131,28 @@ function switchDay(e) {
 	}
 }
 
-function kelvinToFahrenheit() {
+function kelvinToFahrenheit(temps) {
 	for (let i = 0; i < temps.length; i++) {
 		temps[i] = Math.round(((temps[i] - 273.15) * 1.8) + 32);
 	}
 	return temps;
+	
 }
 
-function kelvinToCelsius() {
+function fahrenheitToCelsius() {
 	for (let i = 0; i < temps.length; i++) {
-		temps[i] = Math.round(temps[i] - 273.15);
+		temps[i] = Math.round((temps[i] - 32) * (5/9));
 	}
-	return temps;
+	currentWeatherData[2] = temps;
+	updateHTML(currentWeatherData)
+	
+}
+function celsiusToFahrenheit() {
+	for (let i = 0; i < temps.length; i++) {
+		temps[i] = Math.round((temps[i] * 1.8) + 32);
+	}
+	currentWeatherData[2] = temps;
+	updateHTML(currentWeatherData)
 }
 //depending on what button you click it calls the necessary function
 
