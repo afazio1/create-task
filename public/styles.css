@@ -185,16 +185,22 @@ li {
 
 #fdegrees,
 #cdegrees {
-	display: inline-block;
 	background-color: #0F5298;
-	margin-right: 31em;
 	border-radius: 3px;
 	padding: 5px;
-	margin-bottom: 0.4%;
-	text-align: center;
 	top: 0;
+}
+
+#fdegrees {
+	display: inline-block;
+}
+
+#cdegrees {
+	margin-left: 250px;
 }
 #slogan {
 	color: white;
 	background-color: #0F5298;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 350;
 }
