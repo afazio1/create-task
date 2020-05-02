@@ -25,10 +25,10 @@ h3 {
 }
 .title {
 	text-align: center;
-	background: #77D4F9;
+	background: #0F5298;
 	top: 0;
 	font-family: 'Lato', sans-serif;
-	font-weight: 700;
+	font-weight: 900;
 }
 
 #weather-button {
@@ -54,14 +54,12 @@ h3 {
 	margin-left: 5%;
 }
 .weather-container,
-.apparel-container,
-.nextday-container {
-	display: inline-block;
+.apparel-container {
 	width: 45%;
-	border-radius: 15px;
+	height: 500px;
+	border-radius: 10px;
 	box-shadow: 4px 7px 19px -4px rgba(0,0,0,0.75);
-}
-.weather-container {
+	float: left;
 	margin-left: 3%;
 }
 
@@ -74,15 +72,13 @@ h2 {
 
 .apparel-container {
 	background-color: #34DDDD;
+	
 }
 
 .weather-container {
 	background-color: #77D4F9;
 }
 
-.nextday-container {
-	background-color: #89E894;
-}
 
 #currenttemp {
 	font-size: 30px;
@@ -106,6 +102,7 @@ h2 {
 
 h1 {
 	text-align: center;
+	font-family: 'Lato', sans-serif;
 }
 ul {
 	list-style-type: none;
@@ -118,6 +115,7 @@ li {
 	color: #0F5298;
 	font-family: 'Lato', sans-serif;
 	font-weight: 700;
+	margin-top: 40%;
 }
 .my-wardrobe {
 	list-style-type: none;
@@ -201,6 +199,12 @@ li {
 #slogan {
 	color: white;
 	background-color: #0F5298;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 350;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	font-size: 150%;
+}
+#apparel-list li {
+	font-size: 300%;
+	color: #0F5298;
+	font-weight: 400;
 }
