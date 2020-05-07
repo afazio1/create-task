@@ -1,25 +1,20 @@
-// Remember we can not call the API (or click the button) more than 59 times per minute
-// If we need to figure out styling, just put some fake data in the HTML.
-
 window.onload = function() {
 	getUserWardrobe();
 	getWeather();
 }
-// Variables
+
 let fiveDayForecast = [];
 
-// Cached Elements
+
 let wardrobeSelector = document.getElementById('dropdown');
 let myWardrobe = document.querySelector('.my-wardrobe');
 let nextDaysDiv = document.getElementById('switchday');
 let nextDays = Array.from(document.querySelectorAll("#switchday h3"));
 
 
-//Event Listeners
+
 document.getElementById('cdegrees').addEventListener("click", fahrenheitToCelsius);
 document.getElementById('fdegrees').addEventListener("click", celsiusToFahrenheit);
-
-//document.getElementById('weather-button').addEventListener("click", getWeather);
 document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
 nextDaysDiv.onclick = switchDay;
 wardrobeSelector.onchange = addWardrobeItem;
@@ -28,11 +23,12 @@ myWardrobe.onclick = deleteWardrobeItem;
 
 async function getWeather() {
 	fiveDayForecast = [];
-	const api_url = '/weather';
+
+	// Source for next 3 lines: https://youtu.be/17UVejOw3zA
+	const api_url = '/weather'; 
     const fetch_response = await fetch(api_url);
     json = await fetch_response.json();
-    console.log(json);
-
+   
     storeForecast(json);
 
     raw = 0;
@@ -45,23 +41,19 @@ async function getWeather() {
 			raw++;
 		}
 	}
-	console.log(fiveDayForecast);
 	getDayWeather(fiveDayForecast[0]);
 
 setTimeout(getWeather, 108000)
 }
 
 function storeForecast(json) {
-	//store each day as one element in an array
-	//this function should be called in getWeather()
-
 	currentDate = json.list[0].dt_txt;
 	currentDate = currentDate.slice(8, 10);
 	fiveDayForecast = [json.list[0]];
 	console.log(currentDate);
 	for (let i = 0; i < json.list.length; i++) {
 		if (json.list[i].dt_txt.slice(8, 10) !== currentDate) {
-			//create new day
+			
 			fiveDayForecast.push(json.list[i]);
 			currentDate = json.list[i].dt_txt.slice(8, 10);
 		}
@@ -69,7 +61,7 @@ function storeForecast(json) {
 	return fiveDayForecast;
 }
 function getDayOfWeek(fiveDayForecast, raw) {
-	time = new Date();
+	time = new Date(); // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 	currentDayOfWeek = time.getDay() + raw;
 
 	switch (currentDayOfWeek) {
@@ -99,13 +91,12 @@ function getDayOfWeek(fiveDayForecast, raw) {
 }
 
 function getDayWeather(dayWeather) {
-	icon = "http://openweathermap.org/img/wn/" + dayWeather.weather[0].icon + "@2x.png";
+	icon = "http://openweathermap.org/img/wn/" + dayWeather.weather[0].icon + "@2x.png"; // Source: https://openweathermap.org/forecast5
    	condition = dayWeather.weather[0].main;
     temps = [dayWeather.main.temp_min, dayWeather.main.temp, dayWeather.main.temp_max];
     dayOfWeek = dayWeather.dayOfWeek;
     city = json.city.name;
    	kelvinToFahrenheit(temps);
-  	// kelvinToCelsius(temps);
 
     currentWeatherData = [icon, condition, temps, city, dayOfWeek];
 
@@ -115,14 +106,12 @@ function getDayWeather(dayWeather) {
 function switchDay(e) {
 	if (e.target.tagName === "H3") {
 		nextDays.forEach(function(day){
-			console.log(day);
 			day.className = "";
 		});
 
 		selectedDay = e.target.innerHTML;
-		//e.target.className = "highlighted";
 
-		for (let i = 0; i < fiveDayForecast.length; i++) { // loop through fiveDayForecast, find the correct day, and display it
+		for (let i = 0; i < fiveDayForecast.length; i++) { 
 			if (fiveDayForecast[i].dayOfWeek === selectedDay) {
 				clothingList.innerHTML = "";
 				getDayWeather(fiveDayForecast[i]);
@@ -136,7 +125,6 @@ function kelvinToFahrenheit(temps) {
 		temps[i] = Math.round(((temps[i] - 273.15) * 1.8) + 32);
 	}
 	return temps;
-	
 }
 
 function fahrenheitToCelsius() {
@@ -171,16 +159,15 @@ function updateHTML(currentWeatherData) {
 function getUserWardrobe() {
 	userWardrobe = Array.from(document.querySelectorAll(".my-wardrobe li"));
 	userWardrobe.shift();
-	console.log(userWardrobe);
 	return userWardrobe;
 	addWardrobeItem();
 	deleteWardrobeItem();
 }
 
-// Everything below this is code for the recommended apparel section //
+
 
 function addWardrobeItem() {
-	let clothing = wardrobeSelector.options[wardrobeSelector.selectedIndex].text;
+	let clothing = wardrobeSelector.options[wardrobeSelector.selectedIndex].text; // Source: https://mkyong.com/javascript/javascript-get-selected-value-from-dropdown-list/
 	let newItem = document.createElement('li');
 	newItem.innerHTML = clothing;
 	myWardrobe.append(newItem);
@@ -202,7 +189,7 @@ function deleteWardrobeItem(e) {
 function getRecommendedApparel(getUserWardrobe) {
 	console.log(currentWeatherData);
 	clothingList = document.getElementById('apparel-list');
-// then delete the items based on their relevance to the weather
+
 	for (var i = 0; i < userWardrobe.length; i++) {
 		if (userWardrobe[i].innerHTML === "Short-Sleeve Shirt") {
 			 if (currentWeatherData[2][1] < 65) {
@@ -290,7 +277,5 @@ function getRecommendedApparel(getUserWardrobe) {
 		clothing = document.createElement("li");
 		clothing.innerHTML = apparel.innerHTML;
 		clothingList.append(clothing);
-	});
-		
-		
+	});	
 }
