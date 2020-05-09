@@ -1,3 +1,4 @@
+//Written by Alexa Fazio
 window.onload = function() {
 	getUserWardrobe();
 	getWeather();
@@ -5,22 +6,23 @@ window.onload = function() {
 
 let fiveDayForecast = [];
 
-
+//Written by Gaby Weiner
 let wardrobeSelector = document.getElementById('dropdown');
 let myWardrobe = document.querySelector('.my-wardrobe');
+
+//Written by Alexa Fazio
 let nextDaysDiv = document.getElementById('switchday');
 let nextDays = Array.from(document.querySelectorAll("#switchday h3"));
-
-
-
 document.getElementById('cdegrees').addEventListener("click", fahrenheitToCelsius);
 document.getElementById('fdegrees').addEventListener("click", celsiusToFahrenheit);
 document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
 nextDaysDiv.onclick = switchDay;
+
+//Written by Gaby Weiner
 wardrobeSelector.onchange = addWardrobeItem;
 myWardrobe.onclick = deleteWardrobeItem;
 
-
+// Written By Alexa Fazio
 async function getWeather() {
 	fiveDayForecast = [];
 
@@ -46,6 +48,7 @@ async function getWeather() {
 setTimeout(getWeather, 108000)
 }
 
+// Written By Alexa Fazio
 function storeForecast(json) {
 	currentDate = json.list[0].dt_txt;
 	currentDate = currentDate.slice(8, 10);
@@ -59,6 +62,7 @@ function storeForecast(json) {
 	}
 	return fiveDayForecast;
 }
+// Written By Alexa Fazio
 function getDayOfWeek(fiveDayForecast, raw) {
 	time = new Date(); // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 	currentDayOfWeek = time.getDay() + raw;
@@ -88,7 +92,7 @@ function getDayOfWeek(fiveDayForecast, raw) {
     }
     return currentDayOfWeek;
 }
-
+// Written By Alexa Fazio
 function getDayWeather(dayWeather) {
 	icon = "http://openweathermap.org/img/wn/" + dayWeather.weather[0].icon + "@2x.png"; // Source: https://openweathermap.org/forecast5
    	condition = dayWeather.weather[0].main;
@@ -102,6 +106,7 @@ function getDayWeather(dayWeather) {
     updateHTML(currentWeatherData);
     return currentWeatherData;
 }
+// Written By Alexa Fazio & Gaby Weiner
 function switchDay(e) {
 	if (e.target.tagName === "H3") {
 		nextDays.forEach(function(day){
@@ -118,14 +123,14 @@ function switchDay(e) {
 		}
 	}
 }
-
+// Written By Alexa Fazio
 function kelvinToFahrenheit(temps) {
 	for (let i = 0; i < temps.length; i++) {
 		temps[i] = Math.round(((temps[i] - 273.15) * 1.8) + 32);
 	}
 	return temps;
 }
-
+// Written By Alexa Fazio
 function fahrenheitToCelsius() {
 	for (let i = 0; i < temps.length; i++) {
 		temps[i] = Math.round((temps[i] - 32) * (5/9));
@@ -134,6 +139,7 @@ function fahrenheitToCelsius() {
 	updateHTML(currentWeatherData)
 	
 }
+// Written By Alexa Fazio
 function celsiusToFahrenheit() {
 	for (let i = 0; i < temps.length; i++) {
 		temps[i] = Math.round((temps[i] * 1.8) + 32);
@@ -141,7 +147,7 @@ function celsiusToFahrenheit() {
 	currentWeatherData[2] = temps;
 	updateHTML(currentWeatherData)
 }
-
+// Written By Alexa Fazio
 function updateHTML(currentWeatherData) {
 	document.getElementById('icon').src = currentWeatherData[0];
 	document.getElementById('condition').innerHTML = currentWeatherData[1];
@@ -154,6 +160,7 @@ function updateHTML(currentWeatherData) {
 	});
 
 }
+// Written By Gaby Weiner
 function getUserWardrobe() {
 	userWardrobe = Array.from(document.querySelectorAll(".my-wardrobe li"));
 	userWardrobe.shift();
@@ -162,8 +169,7 @@ function getUserWardrobe() {
 	deleteWardrobeItem();
 }
 
-
-
+// Written By Gaby Weiner
 function addWardrobeItem() {
 	let clothing = wardrobeSelector.options[wardrobeSelector.selectedIndex].text; // Source: https://mkyong.com/javascript/javascript-get-selected-value-from-dropdown-list/
 	let newItem = document.createElement('li');
@@ -173,6 +179,7 @@ function addWardrobeItem() {
 	getUserWardrobe();
 }
 
+// Written By Gaby Weiner
 function deleteWardrobeItem(e) {
 	if (e.target.id !== "dropdown" && e.target.tagName === "LI") {
 		let newOption = document.createElement('option');
@@ -183,6 +190,7 @@ function deleteWardrobeItem(e) {
 	}
 }
 
+// Written By Gaby Weiner
 function getRecommendedApparel(getUserWardrobe) {
 	clothingList = document.getElementById('apparel-list');
 
