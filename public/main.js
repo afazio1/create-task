@@ -50,7 +50,6 @@ function storeForecast(json) {
 	currentDate = json.list[0].dt_txt;
 	currentDate = currentDate.slice(8, 10);
 	fiveDayForecast = [json.list[0]];
-	console.log(currentDate);
 	for (let i = 0; i < json.list.length; i++) {
 		if (json.list[i].dt_txt.slice(8, 10) !== currentDate) {
 			
@@ -142,7 +141,6 @@ function celsiusToFahrenheit() {
 	currentWeatherData[2] = temps;
 	updateHTML(currentWeatherData)
 }
-//depending on what button you click it calls the necessary function
 
 function updateHTML(currentWeatherData) {
 	document.getElementById('icon').src = currentWeatherData[0];
@@ -176,7 +174,6 @@ function addWardrobeItem() {
 }
 
 function deleteWardrobeItem(e) {
-	console.log(e.target.tagName);
 	if (e.target.id !== "dropdown" && e.target.tagName === "LI") {
 		let newOption = document.createElement('option');
 		newOption.innerHTML = e.target.innerHTML;
@@ -187,14 +184,12 @@ function deleteWardrobeItem(e) {
 }
 
 function getRecommendedApparel(getUserWardrobe) {
-	console.log(currentWeatherData);
 	clothingList = document.getElementById('apparel-list');
 
 	for (var i = 0; i < userWardrobe.length; i++) {
 		if (userWardrobe[i].innerHTML === "Short-Sleeve Shirt") {
 			 if (currentWeatherData[2][1] < 65) {
 				 userWardrobe.splice(i, 1);
-				 console.log("1");
 				 i--;
 			 }
 		 }
@@ -202,7 +197,6 @@ function getRecommendedApparel(getUserWardrobe) {
 		else if (userWardrobe[i].innerHTML === "Long-Sleeve Shirt") {
  			 if (currentWeatherData[2][1] > 65) {
  				 userWardrobe.splice(i, 1);
- 				 console.log("2");
  				 i--;
  			 }
  		 }
@@ -210,7 +204,6 @@ function getRecommendedApparel(getUserWardrobe) {
 		 else if (userWardrobe[i].innerHTML === "Shorts") {
  			 if (currentWeatherData[2][1] < 80) {
  				 userWardrobe.splice(i, 1);
- 				 console.log("3");
  				 i--;
  			 }
  		 }
@@ -218,7 +211,6 @@ function getRecommendedApparel(getUserWardrobe) {
 		else if (userWardrobe[i].innerHTML === "Winter Jacket") {
  			 if (currentWeatherData[2][1] > 50) {
  				 userWardrobe.splice(i, 1);
- 				 console.log("4");
  				 i--;
  			 }
  		 }
@@ -226,7 +218,6 @@ function getRecommendedApparel(getUserWardrobe) {
 		else if (userWardrobe[i].innerHTML === "Raincoat") {
  			 if (currentWeatherData[1] !== "Rain") {
  				 userWardrobe.splice(i, 1);
- 				 console.log("5");
  				 i--;
  			 }
  		 }
@@ -234,7 +225,6 @@ function getRecommendedApparel(getUserWardrobe) {
 		 else if (userWardrobe[i].innerHTML === "Gloves") {
  			 if (currentWeatherData[2][1] > 45) {
  				 userWardrobe.splice(i, 1);
- 				 console.log("6");
  				 i--;
  			 }
  		 }
@@ -242,7 +232,6 @@ function getRecommendedApparel(getUserWardrobe) {
 		 else if (userWardrobe[i].innerHTML === "Sweatshirt") {
  			 if (currentWeatherData[2][1] > 60) {
  				 userWardrobe.splice(i, 1);
- 				 console.log("7");
  				 i--;
  			 }
  		 }
@@ -250,7 +239,6 @@ function getRecommendedApparel(getUserWardrobe) {
 		 else if (userWardrobe[i].innerHTML === "Skirt") {
  			 if (currentWeatherData[2][1] < 80) {
  				 userWardrobe.splice(i, 1);
- 				 console.log("8");
  				 i--;
  			 }
  		 }
@@ -258,7 +246,6 @@ function getRecommendedApparel(getUserWardrobe) {
 		 else if (userWardrobe[i].innerHTML === "Tank-Top") {
  			 if (currentWeatherData[2][1] < 80) {
  				 userWardrobe.splice(i, 1);
- 				 console.log("9");
  				 i--;
  			 }
  		 }
@@ -266,7 +253,6 @@ function getRecommendedApparel(getUserWardrobe) {
 		 else if (userWardrobe[i].innerHTML === "Pants") {
  			 if (currentWeatherData[2][1] > 70) {
  				 userWardrobe.splice(i, 1);
- 				 console.log("10");
  				 i--;
  			 }
  		 }
