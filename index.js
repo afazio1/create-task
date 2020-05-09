@@ -1,3 +1,5 @@
+//Written by Alexa Fazio
+
 const express = require('express'); // Source: https://www.npmjs.com/package/express
 const fetch = require('node-fetch'); // Source: https://www.npmjs.com/package/node-fetch
 
