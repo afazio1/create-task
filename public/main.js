@@ -6,7 +6,7 @@ window.onload = function() {
 
 let fiveDayForecast = [];
 
-//Written by Gaby Weiner
+//Written by Gabrielle Weiner
 let wardrobeSelector = document.getElementById('dropdown');
 let myWardrobe = document.querySelector('.my-wardrobe');
 
@@ -18,7 +18,7 @@ document.getElementById('fdegrees').addEventListener("click", celsiusToFahrenhei
 document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
 nextDaysDiv.onclick = switchDay;
 
-//Written by Gaby Weiner
+//Written by Gabrielle Weiner
 wardrobeSelector.onchange = addWardrobeItem;
 myWardrobe.onclick = deleteWardrobeItem;
 
@@ -106,7 +106,7 @@ function getDayWeather(dayWeather) {
     updateHTML(currentWeatherData);
     return currentWeatherData;
 }
-// Written By Alexa Fazio & Gaby Weiner
+// Written By Alexa Fazio & Gabrielle Weiner
 function switchDay(e) {
 	if (e.target.tagName === "H3") {
 		nextDays.forEach(function(day){
@@ -160,7 +160,7 @@ function updateHTML(currentWeatherData) {
 	});
 
 }
-// Written By Gaby Weiner
+// Written By Gabrielle Weiner
 function getUserWardrobe() {
 	userWardrobe = Array.from(document.querySelectorAll(".my-wardrobe li"));
 	userWardrobe.shift();
@@ -169,7 +169,7 @@ function getUserWardrobe() {
 	deleteWardrobeItem();
 }
 
-// Written By Gaby Weiner
+// Written By Gabrielle Weiner
 function addWardrobeItem() {
 	let clothing = wardrobeSelector.options[wardrobeSelector.selectedIndex].text; // Source: https://mkyong.com/javascript/javascript-get-selected-value-from-dropdown-list/
 	let newItem = document.createElement('li');
@@ -179,18 +179,22 @@ function addWardrobeItem() {
 	getUserWardrobe();
 }
 
-// Written By Gaby Weiner
+// Written By Gabrielle Weiner
 function deleteWardrobeItem(e) {
-	if (e.target.id !== "dropdown" && e.target.tagName === "LI") {
-		let newOption = document.createElement('option');
-		newOption.innerHTML = e.target.innerHTML;
-		wardrobeSelector.append(newOption);
-		e.target.remove();
-		getUserWardrobe();
+	
+	for (let i = 0; i < userWardrobe.length; i++) {
+		if (userWardrobe[i].id !== "dropdown" && userWardrobe.tagName === "LI") {
+			let newOption = document.createElement('option');
+			newOption.innerHTML = userWardrobe[i].innerHTML;
+			wardrobeSelector.append(newOption);
+			//e.target.remove();
+			getUserWardrobe();
+			i--
+		}
 	}
 }
 
-// Written By Gaby Weiner
+// Written By Gabrielle Weiner
 function getRecommendedApparel(getUserWardrobe) {
 	clothingList = document.getElementById('apparel-list');
 
