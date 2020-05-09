@@ -182,14 +182,16 @@ function addWardrobeItem() {
 // Written By Gabrielle Weiner
 function deleteWardrobeItem(e) {
 	
-	for (let i = 0; i < userWardrobe.length; i++) {
-		if (userWardrobe[i].id !== "dropdown" && userWardrobe.tagName === "LI") {
-			let newOption = document.createElement('option');
-			newOption.innerHTML = userWardrobe[i].innerHTML;
-			wardrobeSelector.append(newOption);
-			//e.target.remove();
-			getUserWardrobe();
-			i--
+		if (e.target.id !== "dropdown" && e.target.tagName === "LI") {
+			for (let i = 0; i < userWardrobe.length; i++) {
+				if (e.target.innerHTML == userWardrobe[i].innerHTML) {
+					console.log(userWardrobe);
+					let newOption = document.createElement('option');
+					newOption.innerHTML = userWardrobe[i].innerHTML;
+					wardrobeSelector.append(newOption);
+					userWardrobe[i].remove();
+					getUserWardrobe();
+			}	
 		}
 	}
 }
