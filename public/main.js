@@ -6,11 +6,11 @@ window.onload = function() {
 
 let fiveDayForecast = [];
 
-//Written by Gabrielle Weiner
+//Written by partner
 let wardrobeSelector = document.getElementById('dropdown');
 let myWardrobe = document.querySelector('.my-wardrobe');
 
-//Written by Alexa Fazio
+//Written by me
 let nextDaysDiv = document.getElementById('switchday');
 let nextDays = Array.from(document.querySelectorAll("#switchday h3"));
 document.getElementById('cdegrees').addEventListener("click", fahrenheitToCelsius);
@@ -18,11 +18,11 @@ document.getElementById('fdegrees').addEventListener("click", celsiusToFahrenhei
 document.getElementById('done-button').addEventListener("click", getRecommendedApparel);
 nextDaysDiv.onclick = switchDay;
 
-//Written by Gabrielle Weiner
+//Written by partner
 wardrobeSelector.onchange = addWardrobeItem;
 myWardrobe.onclick = deleteWardrobeItem;
 
-// Written By Alexa Fazio
+// Written By me
 async function getWeather() {
 	fiveDayForecast = [];
 
@@ -48,7 +48,7 @@ async function getWeather() {
 setTimeout(getWeather, 108000)
 }
 
-// Written By Alexa Fazio
+// Written by me
 function storeForecast(json) {
 	currentDate = json.list[0].dt_txt;
 	currentDate = currentDate.slice(8, 10);
@@ -62,7 +62,7 @@ function storeForecast(json) {
 	}
 	return fiveDayForecast;
 }
-// Written By Alexa Fazio
+// Written by me
 function getDayOfWeek(fiveDayForecast, raw) {
 	time = new Date(); // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 	currentDayOfWeek = time.getDay() + raw;
@@ -92,13 +92,15 @@ function getDayOfWeek(fiveDayForecast, raw) {
     }
     return currentDayOfWeek;
 }
-// Written By Alexa Fazio
+
+// Written by me
 function getDayWeather(dayWeather) {
 	icon = "http://openweathermap.org/img/wn/" + dayWeather.weather[0].icon + "@2x.png"; // Source: https://openweathermap.org/forecast5
    	condition = dayWeather.weather[0].main;
     temps = [dayWeather.main.temp_min, dayWeather.main.temp, dayWeather.main.temp_max];
     dayOfWeek = dayWeather.dayOfWeek;
     city = json.city.name;
+    tempType = "k";
    	kelvinToFahrenheit(temps);
 
     currentWeatherData = [icon, condition, temps, city, dayOfWeek];
@@ -106,7 +108,8 @@ function getDayWeather(dayWeather) {
     updateHTML(currentWeatherData);
     return currentWeatherData;
 }
-// Written By Alexa Fazio & Gabrielle Weiner
+
+// Written by partner and I
 function switchDay(e) {
 	if (e.target.tagName === "H3") {
 		nextDays.forEach(function(day){
@@ -123,31 +126,44 @@ function switchDay(e) {
 		}
 	}
 }
-// Written By Alexa Fazio
+
+// Written by me
 function kelvinToFahrenheit(temps) {
-	for (let i = 0; i < temps.length; i++) {
-		temps[i] = Math.round(((temps[i] - 273.15) * 1.8) + 32);
+	if (tempType == "k") {
+		for (let i = 0; i < temps.length; i++) {
+			temps[i] = Math.round(((temps[i] - 273.15) * 1.8) + 32);
+		}
+	tempType = "f";
 	}
 	return temps;
 }
-// Written By Alexa Fazio
+
+// Written by me
 function fahrenheitToCelsius() {
-	for (let i = 0; i < temps.length; i++) {
-		temps[i] = Math.round((temps[i] - 32) * (5/9));
+	if (tempType == "f") {
+		for (let i = 0; i < temps.length; i++) {
+			temps[i] = Math.round((temps[i] - 32) * (5/9));
+		}
+		currentWeatherData[2] = temps;
+		tempType = "c";
+		updateHTML(currentWeatherData)
 	}
-	currentWeatherData[2] = temps;
-	updateHTML(currentWeatherData)
 	
 }
-// Written By Alexa Fazio
+
+// Written by me
 function celsiusToFahrenheit() {
-	for (let i = 0; i < temps.length; i++) {
+	if (tempType == "c") {
+		for (let i = 0; i < temps.length; i++) {
 		temps[i] = Math.round((temps[i] * 1.8) + 32);
 	}
 	currentWeatherData[2] = temps;
+	tempType = "f";
 	updateHTML(currentWeatherData)
+	}	
 }
-// Written By Alexa Fazio
+
+// Written by me
 function updateHTML(currentWeatherData) {
 	document.getElementById('icon').src = currentWeatherData[0];
 	document.getElementById('condition').innerHTML = currentWeatherData[1];
@@ -158,9 +174,9 @@ function updateHTML(currentWeatherData) {
 			day.className = "highlighted";
 		}
 	});
-
 }
-// Written By Gabrielle Weiner
+
+// Written by partner
 function getUserWardrobe() {
 	userWardrobe = Array.from(document.querySelectorAll(".my-wardrobe li"));
 	userWardrobe.shift();
@@ -169,7 +185,7 @@ function getUserWardrobe() {
 	deleteWardrobeItem();
 }
 
-// Written By Gabrielle Weiner
+// Written by partner
 function addWardrobeItem() {
 	let clothing = wardrobeSelector.options[wardrobeSelector.selectedIndex].text; // Source: https://mkyong.com/javascript/javascript-get-selected-value-from-dropdown-list/
 	let newItem = document.createElement('li');
@@ -179,13 +195,12 @@ function addWardrobeItem() {
 	getUserWardrobe();
 }
 
-// Written By Gabrielle Weiner
+// Written by partner
 function deleteWardrobeItem(e) {
 	
 		if (e.target.id !== "dropdown" && e.target.tagName === "LI") {
 			for (let i = 0; i < userWardrobe.length; i++) {
 				if (e.target.innerHTML == userWardrobe[i].innerHTML) {
-					console.log(userWardrobe);
 					let newOption = document.createElement('option');
 					newOption.innerHTML = userWardrobe[i].innerHTML;
 					wardrobeSelector.append(newOption);
@@ -196,7 +211,7 @@ function deleteWardrobeItem(e) {
 	}
 }
 
-// Written By Gabrielle Weiner
+// Written by partner
 function getRecommendedApparel(getUserWardrobe) {
 	clothingList = document.getElementById('apparel-list');
 
